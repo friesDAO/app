@@ -100,8 +100,8 @@ const Checkpoint = ({ checkpointValid, setCheckpointValid, theme }) => {
 				<div className={classNames("token-page", "page", "patterned", "col", "center-m", "center-a", {
 					visible: checkpoint.state == 4
 				})}>
-					<div className="token-title">get some FRIES tokens to become a member</div>
-					<div className="token-desc">you'll need at least 5000 FRIES for membership</div>
+					<div className="token-title">get some FRIES tokens or an NFT to become a member</div>
+					<div className="token-desc">you'll need at least 5000 FRIES or a friesDAO NFT for membership</div>
 					<div className="token-balance">your FRIES: {format(parse(checkpoint.totalTokens, 18))} FRIES</div>
 					<a className="buy button primary" href="https://app.uniswap.org/#/swap?exactField=output&exactAmount=5000&outputCurrency=0xFA57F00D948bb6a28072f5416fCbF7836C3d62dD&chain=mainnet" target="_blank">buy on Uniswap</a>
 				</div>
