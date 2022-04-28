@@ -7,7 +7,7 @@ import { ethers } from "ethers"
 const BN = n => ethers.BigNumber.from(n)
 
 
-const ActionInput = ({actionName, token, max, action, approve, account, signer }) => {
+const ActionInput = ({actionName, token, max, action, approve, account, signer, setAmount }) => {
 	const [ buttonState, setButtonState ] = useState(0)
     const [ buttonText, setButtonText ] = useState(actionName)
 	const [ value, setValue ] = useState("")
@@ -40,7 +40,8 @@ const ActionInput = ({actionName, token, max, action, approve, account, signer }
     }
 
 	useEffect(() => {
-		console.log(value.toString())
+		setAmount ? setAmount(value) : null
+		console.log(parse(value))
 		input.current.value = lastModificationPercent ? parse(value, token.decimals).toFixed(token.displayDecimals) : ethers.BigNumber.isBigNumber(value) ? parse(value, token.decimals) : value
 		updateButtonState()
     }, [value, max])

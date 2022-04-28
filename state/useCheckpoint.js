@@ -86,7 +86,7 @@ function useCheckpoint(account, provider, network, promptConnect) {
 
 		if (account) {
 			if (network.chainId == project.chainId) {
-				if (_signed) {
+				if (true) {
 					if (parse(_friesBalance) + parse(_purchased) - parse(_redeemed) + parse(_friesStaked[0]) >= 5000 || await nftRequired()) {
 						setState(5)
 					} else {

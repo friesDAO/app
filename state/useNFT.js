@@ -6,7 +6,7 @@ import NFTABI from "../abis/FriesDAONFT.json"
 import deployments from "../config/deployments.json"
 import reservedList from "../config/reserved-list.json"
 import { parse } from "../util/number.js"
-import { makeLeaf, makeTree } from "../util/merkle.js"
+import { makeLeaf, makeTree } from "../util/merkle-nft.js"
 import clone from "../util/clone.js"
 import useApproval from "./useApproval"
 import axios from "axios"
@@ -54,8 +54,9 @@ function useNFT(account, signer) {
 		const _reservedRaw = reservedList.find(e => e[0] == ethers.utils.getAddress(account))
 		if (_reservedRaw) {
 			const tree = makeTree(reservedList)
-			const leaf = makeLeaf(account, _reservedRaw[1])
+			const leaf = makeLeaf(account, reservedList[0][1])
 			setProof(tree.getHexProof(leaf))
+			console.log(tree.getHexProof(leaf))
 			setLimits(_reservedRaw[1])
 
 			const minted = await Promise.all([
@@ -73,7 +74,7 @@ function useNFT(account, signer) {
 			setReservedNfts([0,0,0])
 		}
 
-		const _ownedIds = (await Promise.all([...Array(_nftBalance).keys()].map(i => NFT.tokenOfOwnerByIndex(account, i)))).map(id => Number(id))
+		const _ownedIds = (await Promise.all([...Array(Number(_nftBalance)).keys()].map(i => NFT.tokenOfOwnerByIndex(account, i)))).map(id => Number(id))
 		const _nftsOwned = Object.fromEntries(await Promise.all(_ownedIds.map(id => axios.get(`${_baseURI}${id}`).then(res => ([id, {...res.data, id: id}])))))
 		setNftsOwned(_nftsOwned)
 	}

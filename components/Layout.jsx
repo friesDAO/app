@@ -166,6 +166,14 @@ const Sidebar = ({ style }) => {
 							<div className="link-text">raise</div>
 						</a>
 					</Link>
+					<Link href="/refund">
+						<a className={classNames("link", "row", "center-a", {
+							active: pathname == "/refund"
+						})}>
+							<i className="link-icon fas fa-undo"></i>
+							<div className="link-text">refund</div>
+						</a>
+					</Link>
 				</div>
 
 				<div className="links-container col center-a">
