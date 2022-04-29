@@ -47,7 +47,7 @@ const Refund = () => {
 						<div className="card-title">info</div>
 						<Stat title="FRIES balance" value={format(parse(Refunder.friesBalance))} />
 						<Stat title="refund ratio" value={`$${parse(Refunder.refundRatio, 6)} per FRIES`} />
-						<Stat title="eligibility" value={Refunder.validNft ? "contributor NFT" : (Refunder.refundMax.isZero() ? "no" : `${format(parse(Refunder.refundMax))} FRIES`)} />
+						<Stat title="eligibility" value={Refunder.validNft ? "contributor NFT" : (Refunder.refundMax.isZero() ? "not eligible" : `${format(parse(Refunder.refundMax))} FRIES`)} />
 					</div>
 
 					<div className="refund card refund-card col center-a center-m">
