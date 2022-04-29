@@ -87,7 +87,7 @@ const ActionInput = ({actionName, token, max, action, approve, account, signer, 
 				<div className="percents row evenly">
 					<button className="percent-button secondary" onClick={() => percentUpdate(25)}>25%</button>
 					<button className="percent-button secondary" onClick={() => percentUpdate(50)}>50%</button>
-					<button className="percent-button secondary" onClick={() => percentUpdate(55)}>75%</button>
+					<button className="percent-button secondary" onClick={() => percentUpdate(75)}>75%</button>
 					<button className="percent-button secondary" onClick={() => percentUpdate(100)}>100%</button>
 				</div>
 			</div>
