@@ -106,11 +106,11 @@ const Refund = () => {
 				}
 
 				.info {
-					grid-column: 1 / 2;
+					grid-area: 1 / 1 / 2 / 2;
 				}
 
 				.refund {
-					grid-column: 2 / 4;
+					grid-area: 1 / 2 / 2 / 4;
 				}
 
 				.warning-title {
@@ -129,6 +129,25 @@ const Refund = () => {
 				.output {
 					margin-top: 8px;
 					font-size: 1.2em;
+				}
+
+				@media only screen and (max-width: 875px) {
+					.refund-container {
+						font-size: 80%;
+					}
+
+					.refund-grid {
+						grid-template-columns: 1fr;
+						grid-template-rows: repeat(3, 1fr);
+					}
+
+					.info {
+						grid-area: 1 / 1 / 2 / 2;
+					}
+	
+					.refund {
+						grid-area: 2 / 1 / 4 / 2;
+					}
 				}
 			`}</style>
 		</>
