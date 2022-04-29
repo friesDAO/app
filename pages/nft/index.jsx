@@ -67,7 +67,7 @@ const NFTPage = () => {
 						</div>
 
 						<div className="opensea-link card row center-m center-a">
-							<div className="link-text">opensea</div>
+							<a href={`https://opensea.io/assets/0x8e30f1673517445708abe259337b782d09477b06/${selectedNFT}`} target="_blank" className="link-text">opensea</a>
 							<i className="fas fa-external-link-alt link-icon"></i>
 						</div>
 					</div>
@@ -210,8 +210,6 @@ const NFTPage = () => {
 					gap: 10px;
 					border-bottom-color: var(--orange);
 					border-bottom-width: 3px;
-					opacity: 0.5;
-					pointer-events: none;
 				}
 
 				.link-text {
