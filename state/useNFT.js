@@ -54,7 +54,7 @@ function useNFT(account, signer) {
 		const _reservedRaw = reservedList.find(e => e[0] == ethers.utils.getAddress(account))
 		if (_reservedRaw) {
 			const tree = makeTree(reservedList)
-			const leaf = makeLeaf(account, reservedList[0][1])
+			const leaf = makeLeaf(account, _reservedRaw[1])
 			setProof(tree.getHexProof(leaf))
 			console.log(tree.getHexProof(leaf))
 			setLimits(_reservedRaw[1])
