@@ -53,7 +53,8 @@ function useRefund(account, signer) {
 			setWhitelistLimit(BN(0))
 		} else if (refundList.map(e => e[0]).includes(ethers.utils.getAddress(account))) {
 			const _whitelistLimit = refundList.find(e => e[0] == ethers.utils.getAddress(account))[1]
-			setRefundMax(unparse(_whitelistLimit).sub(_refunded))
+			const _refundable = unparse(_whitelistLimit).sub(_refunded)
+			setRefundMax(_friesBalance.lt(_refundable) ? _friesBalance : _refundable)
 			setValidNft(false)
 			setWhitelistLimit(unparse(_whitelistLimit, 18))
 

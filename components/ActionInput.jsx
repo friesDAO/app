@@ -136,7 +136,7 @@ const ActionInput = ({actionName, token, max, action, approve, account, signer, 
 				}
 
 				.percent-button {
-					font-size: 0.8em;
+					font-size: 0.95em;
 					padding: 2px 6px;
 				}
 			`}</style>
